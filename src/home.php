@@ -26,6 +26,10 @@ else if (isset($_GET['loginfail']))
                     <table id="text-center">
                         <form action="login.php" method="POST" id="form-center">
                             <tr>
+                                <td colspan="3"><img src="logo_askon.png" alt="Logo Askon" /></td>
+                            </tr>
+                            <tr><td><br/></td></tr>
+                            <tr>
                                 <td>Username</td>
                                 <td>:</td>
                                 <td><input type="text" name="user"/></td>
@@ -35,6 +39,7 @@ else if (isset($_GET['loginfail']))
                                 <td>:</td>
                                 <td><input type="password" name="pswd"/></td>
                             </tr>
+                            <tr><td><br/></td></tr>
                             <tr>
                                 <td colspan="3"><input type="submit" value="Log In"/> <input type="button" value="Cancel" /></td>
                             </tr>
