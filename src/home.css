@@ -1,0 +1,41 @@
+#mainbody 
+{
+  background: -webkit-radial-gradient(circle, #d3d3d3, #000000);
+  background: -o-radial-gradient(circle, #d3d3d3, #000000);
+  background: -moz-radial-gradient(circle, #d3d3d3, #000000);
+  background: radial-gradient(circle, #d3d3d3, #000000);
+}
+
+#centered 
+{
+    position: relative;
+    margin: auto;
+    width: 28%;
+    top: 54%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+}
+
+#form-center 
+{
+    position: relative;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    top: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+}
+
+#tabling
+{
+    position: relative;
+    background: #ffffff;
+    width: 250px;
+    height: 80px;
+}
+
+#text-center
+{
+    text-align: center;
+}
