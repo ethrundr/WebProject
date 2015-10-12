@@ -1,12 +1,16 @@
 <?php
 session_start();
-if (isset($_SESSION['username'])) 
+if (isset($_SESSION['username']) && isset($_SESSION['privilege'])) 
 {
-    header('Location: admin.php');
-}
-else if (isset($_GET['loginfail']))
-{
-    echo "Login Failed";
+    if($_SESSION['privilege'] == 1 || $_SESSION['privilege'] == 2)
+    {
+        header('Location: admin.php');
+    }
+    
+    else if($_SESSION['privilege'] == 3 || $_SESSION['privilege'] == 4)
+    {
+        header('Location: member.php');
+    }
 }
 ?>
 <html>
