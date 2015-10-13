@@ -20,6 +20,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['privilege']))
         <meta name="description" content="Login Page">
         <meta name="keywords" content="HTML,CSS,PHP,JavaScript">
         <meta name="author" content="PT. Artha Samudra Kontindo">
+        <link rel="stylesheet" type="text/css" href="master.css">
         <link rel="stylesheet" type="text/css" href="home.css">
     </head>
     

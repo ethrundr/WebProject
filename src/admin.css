@@ -16,6 +16,11 @@
     background-color: coral;
 }
 
+#text-center
+{
+    text-align: center;
+}
+
 #intermitten
 {
     position: relative;

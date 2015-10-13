@@ -16,6 +16,7 @@ else
         <meta name="description" content="Admin Page">
         <meta name="keywords" content="HTML,CSS,PHP,JavaScript">
         <meta name="author" content="PT. Artha Samudra Kontindo">
+        <link rel="stylesheet" type="text/css" href="master.css">
         <link rel="stylesheet" type="text/css" href="member.css">
     </head>
     
