@@ -81,3 +81,8 @@ function loadDoc2()
     xhttp.send();
 //    alert("AJAX Ends, text supposed to be edited");
 }
+
+function triggerMe()
+{
+    alert("JS Working");
+}

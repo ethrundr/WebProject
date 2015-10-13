@@ -30,27 +30,27 @@ if (!(isset($_SESSION['username'])))
                     <br/>
                 </div>
                 <div id="menuBar1">
-                    <canvas id="menu1" width="400" height="70">
+                    <canvas id="menu1" width="400" height="70" onclick="loadDoc0()">
                         Your browser does not support the HTML5 canvas tag.
                     </canvas>
                 </div>
                 <div id="menuBar2">
-                    <canvas id="menu2" width="400" height="70">
+                    <canvas id="menu2" width="400" height="70" onclick="loadDoc1()">
                         Your browser does not support the HTML5 canvas tag.
                     </canvas>
                 </div>
                 <div id="menuBar3">
-                    <canvas id="menu3" width="400" height="70">
+                    <canvas id="menu3" width="400" height="70" onclick="loadDoc2()">
                         Your browser does not support the HTML5 canvas tag.
                     </canvas>
                 </div>
                 <div id="menuBar4">
-                    <canvas id="menu4" width="400" height="70">
+                    <canvas id="menu4" width="400" height="70" onclick="loadDoc1()">
                         Your browser does not support the HTML5 canvas tag.
                     </canvas>
                 </div>
                 <div id="menuBar5">
-                    <canvas id="menu5" width="400" height="70">
+                    <canvas id="menu5" width="400" height="70" onclick="loadDoc0()">
                         Your browser does not support the HTML5 canvas tag.
                     </canvas>
                 </div>
