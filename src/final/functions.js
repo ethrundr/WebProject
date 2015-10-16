@@ -195,6 +195,63 @@ function loadSample(sampleType)
 //    alert("AJAX Ends, text supposed to be edited");
 }
 
+function loadSampleold(sampleType) 
+{
+//    alert("AJAX Initiate");
+    var xhttp;
+    if (window.XMLHttpRequest) 
+    {
+        xhttp = new XMLHttpRequest();
+    } 
+    
+    else 
+    {
+        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+//    var xhttp = new XMLHttpRequest();
+  
+    xhttp.onreadystatechange = function() 
+    {
+        if (xhttp.readyState == 4 && xhttp.status == 200) 
+        {
+            document.getElementById("contentArea").innerHTML = xhttp.responseText;
+        }
+    }
+  
+    if(sampleType == 1)
+    {
+        xhttp.open("GET", "content-sample-dmin.html", true);
+    }
+    
+    else if(sampleType == 2)
+    {
+        xhttp.open("GET", "content-sample-dmout.html", true);
+    }
+    
+    else if(sampleType == 3)
+    {
+        xhttp.open("GET", "content-sample-ds.html", true);
+    }
+    
+    else if(sampleType == 4)
+    {
+        xhttp.open("GET", "content-sample-sc.html", true);
+    }
+    
+    else if(sampleType == 5)
+    {
+        xhttp.open("GET", "content-sample-cl.html", true);
+    }
+    
+    else
+    {
+        xhttp.open("GET", "content-sample.html", true);
+    }
+    
+    xhttp.send();
+//    alert("AJAX Ends, text supposed to be edited");
+}
+
 function loadCase1() 
 {
 //    alert("AJAX Initiate");
@@ -280,6 +337,61 @@ function updateField(contID)
     
     xhttp.send();
 //    alert("AJAX Ends, text supposed to be edited");
+}
+
+function updateFieldold(contID) 
+{
+//    alert("AJAX Initiate");
+    var xhttp;
+    if (window.XMLHttpRequest) 
+    {
+        xhttp = new XMLHttpRequest();
+    } 
+    
+    else 
+    {
+        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+//    var xhttp = new XMLHttpRequest();
+  
+    xhttp.onreadystatechange = function() 
+    {
+        if (xhttp.readyState == 4 && xhttp.status == 200) 
+        {
+            document.getElementById("updateArea").innerHTML = xhttp.responseText;
+        }
+    }
+    
+   if(contID == "TEST0000001")
+   {
+       xhttp.open("GET", "content-sample-cl-01.html", true);
+   }
+    
+   else if(contID == "TEST0000002")
+   {
+       xhttp.open("GET", "content-sample-cl-02.html", true);
+   }
+    
+   else
+   {
+       xhttp.open("GET", "content-sample-cl-error.html", true);
+   }
+    
+    xhttp.send();
+//    alert("AJAX Ends, text supposed to be edited");
+}
+
+function tooltip(element,ID)
+{
+    if(ID == 1)
+    {
+        element.style.display="Case 1: Logo dan Teks Bersebelahan";
+    }
+    
+    else if(ID == 2)
+    {
+        element.style.display="Case 1: Teks dibawah Logo";
+    }
 }
 
 function triggerMe()
