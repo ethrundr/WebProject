@@ -40,27 +40,39 @@ if (!(isset($_SESSION['username'])))
                 <?php
                     require_once('database.php');
                     
-                    $menu = mysqli_query($conn, "SELECT * FROM `askon`.`menu`");
-                    
-                    while($row = mysqli_fetch_array($menu))
+                    if($_SESSION['privilege'] == 5)
                     {
-                        echo "<div>";
-                        echo "<canvas id=\"menu".$row[0]."\" width=\"400\" height=\"70\" onclick=\"loadSample(".$row[0].")\">";
-                        echo "Your browser does not support the HTML5 canvas tag.";
-                        echo "</canvas>";
-                        echo "<script>";
-                        echo "var a = document.getElementById(\"menu".$row[0]."\");";
-                        echo "var atx = a.getContext(\"2d\");";
-                        echo "atx.rect(1 , 5 , 250 , 40);";
-                        echo "atx.strokeStyle = \"#d3d3d3\";";
-                        echo "atx.stroke();";
-                        echo "atx.fillStyle = \"#d3d3d3\";";
-                        echo "atx.fill();";
-                        echo "atx.font = \"20px Tahoma\";";
-                        echo "atx.fillStyle = \"#000000\";";
-                        echo "atx.fillText(\"".$row[2]."\" , 10 , 32);";
-                        echo "</script>";
-                        echo "</div>";
+                        echo "<p align=\"center\">";
+                        echo "We're very sorry,<br/>but you cannot access the menu<br/>as guest user.";
+                        echo "<br/><br/>";
+                        echo "Please login using your Member ID to access the menu.";
+                        echo "</p>";
+                    }
+
+                    else
+                    {
+                        $menu = mysqli_query($conn, "SELECT * FROM `askon`.`menu`");
+                        
+                        while($row = mysqli_fetch_array($menu))
+                        {
+                            echo "<div>";
+                            echo "<canvas id=\"menu".$row[0]."\" width=\"400\" height=\"70\" onclick=\"loadSample(".$row[0].")\">";
+                            echo "Your browser does not support the HTML5 canvas tag.";
+                            echo "</canvas>";
+                            echo "<script>";
+                            echo "var a = document.getElementById(\"menu".$row[0]."\");";
+                            echo "var atx = a.getContext(\"2d\");";
+                            echo "atx.rect(1 , 5 , 250 , 40);";
+                            echo "atx.strokeStyle = \"#d3d3d3\";";
+                            echo "atx.stroke();";
+                            echo "atx.fillStyle = \"#d3d3d3\";";
+                            echo "atx.fill();";
+                            echo "atx.font = \"20px Tahoma\";";
+                            echo "atx.fillStyle = \"#000000\";";
+                            echo "atx.fillText(\"".$row[2]."\" , 10 , 32);";
+                            echo "</script>";
+                            echo "</div>";
+                        }
                     }
                 ?>
                 <hr/>

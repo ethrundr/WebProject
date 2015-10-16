@@ -8,10 +8,10 @@
 
 #centered 
 {
-    position: relative;
+    position: fixed;
     margin: auto;
-    width: 28%;
     top: 47%;
+    left: 32%;
     transform: translateX(-50%);
     transform: translateY(-50%);
 }
@@ -38,4 +38,12 @@
 #text-center
 {
     text-align: center;
+}
+
+.box {
+    width:500px;
+    height:500px;
+    position:fixed;
+    margin-left:-100px; /* half of width */
+    margin-top:-100px;  /* half of height */
 }

@@ -22,21 +22,24 @@ if (isset($_SESSION['username']) && isset($_SESSION['privilege']))
         <meta name="author" content="PT. Artha Samudra Kontindo">
         <link rel="stylesheet" type="text/css" href="master.css">
         <link rel="stylesheet" type="text/css" href="home.css">
+        <script type="text/javascript" src="functions.js"></script>
     </head>
     
-    <body id="mainbody">
+    <body id="mainbody" onload="loadCase1()">
+        <input type="button" value="Case 1" onclick="loadCase1()"/><input type="button" value="Case 2" onclick="loadCase2()"/>
         <div id="centered">
             <center>
-                <div id="tabling">
-                    <table id="text-center">
-                        <form action="login.php" method="POST" id="form-center">
+                <div id="contentArea">
+                </div>
+                <div>
+                    <table align="center" style="text-align:center;">
+                        <form action="login.php" method="POST">
                             <tr>
-                                <td colspan="3"><img src="logo_askon.png" alt="Logo Askon" /></td>
+                                <td><br/></td>
                             </tr>
-                            <tr><td><br/></td></tr>
                             <tr>
                                 <td>Username</td>
-                                <td>:</td>
+                                <td width="2px">:</td>
                                 <td><input type="text" name="user"/></td>
                             </tr>
                             <tr>

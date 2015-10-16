@@ -27,12 +27,12 @@ if (mysqli_num_rows($login) == 1)
     
     else if($row[4] == 5)
     {
-        header('Location: home.php?error=404');
+        header('Location: guest.php');
     }
     
     else if($row[4] == 6)
     {
-        header('Location: home.php?error=403');
+        header('Location: blocked.php');
     }
     
 }
