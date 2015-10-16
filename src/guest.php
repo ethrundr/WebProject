@@ -7,7 +7,7 @@ if (!(isset($_SESSION['username'])))
 ?>
 <html>
     <head>
-        <title>Admin Home</title>
+        <title>Content Home</title>
         <meta charset="UTF-8">
         <meta name="description" content="Admin Page">
         <meta name="keywords" content="HTML,CSS,PHP,JavaScript">
