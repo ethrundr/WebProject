@@ -22,9 +22,10 @@ if (!(isset($_SESSION['username'])))
         <div class="container">
             <div id="leftmenu" class="column column-offset-1 ">
                 <div id="logo">
-                    <table align="center" style="text-align:center;">
+                    <table align="center">
                         <tr>
-                            <td><img src="logo_askon_nt.png" alt="Logo Askon" width="56px" height="53px"/> <font size="2px" style="vertical-align:20px;"><b>PT. Artha Samudra Kontindo</b></font></td>
+                            <td><img src="logo_askon_nt.png" alt="Logo Askon" width="60px" height="57px"/></td>
+                            <td><font size="2px"><b>PT. Artha Samudra Kontindo</b><br/></font><left><font size="1px">Kawasan Industri Cipta Guna Blok 9<br/>Jl. Arteri Yos Sudarso, Semarang 50174<br/>Telp: 024-12345678</font></left></td>
                         </tr>
                     </table>
                 </div>
@@ -37,31 +38,32 @@ if (!(isset($_SESSION['username'])))
                     </p>
                 </div>
                 <hr/>
-                <div id="menuBar1">
-                    <canvas id="menu1" width="400" height="70" onclick="loadSampleold(1)">
-                        Your browser does not support the HTML5 canvas tag.
-                    </canvas>
-                </div>
-                <div id="menuBar2">
-                    <canvas id="menu2" width="400" height="70" onclick="loadSampleold(2)">
-                        Your browser does not support the HTML5 canvas tag.
-                    </canvas>
-                </div>
-                <div id="menuBar3">
-                    <canvas id="menu3" width="400" height="70" onclick="loadSampleold(3)">
-                        Your browser does not support the HTML5 canvas tag.
-                    </canvas>
-                </div>
-                <div id="menuBar4">
-                    <canvas id="menu4" width="400" height="70" onclick="loadSampleold(4)">
-                        Your browser does not support the HTML5 canvas tag.
-                    </canvas>
-                </div>
-                <div id="menuBar5">
-                    <canvas id="menu5" width="400" height="70" onclick="loadSampleold(5)">
-                        Your browser does not support the HTML5 canvas tag.
-                    </canvas>
-                </div>
+                <?php
+                    require_once('database.php');
+                    
+                    $menu = mysqli_query($conn, "SELECT * FROM `askon`.`menu`");
+                    
+                    while($row = mysqli_fetch_array($menu))
+                    {
+                        echo "<div>";
+                        echo "<canvas id=\"menu".$row[0]."\" width=\"400\" height=\"70\" onclick=\"loadSample(".$row[0].")\">";
+                        echo "Your browser does not support the HTML5 canvas tag.";
+                        echo "</canvas>";
+                        echo "<script>";
+                        echo "var a = document.getElementById(\"menu".$row[0]."\");";
+                        echo "var atx = a.getContext(\"2d\");";
+                        echo "atx.rect(1 , 5 , 250 , 40);";
+                        echo "atx.strokeStyle = \"#d3d3d3\";";
+                        echo "atx.stroke();";
+                        echo "atx.fillStyle = \"#d3d3d3\";";
+                        echo "atx.fill();";
+                        echo "atx.font = \"20px Tahoma\";";
+                        echo "atx.fillStyle = \"#000000\";";
+                        echo "atx.fillText(\"".$row[2]."\" , 10 , 32);";
+                        echo "</script>";
+                        echo "</div>";
+                    }
+                ?>
                 <hr/>
                 <div id="menuBar6">
                     <p align="center">
