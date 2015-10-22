@@ -22,9 +22,10 @@ if (!(isset($_SESSION['username'])))
         <div class="container">
             <div id="leftmenu" class="column column-offset-1 ">
                 <div id="logo">
-                    <table align="center" style="text-align:center;">
+                    <table align="center">
                         <tr>
-                            <td><img src="logo_askon_nt.png" alt="Logo Askon" width="56px" height="53px"/> <font size="2px" style="vertical-align:20px;"><b>PT. Artha Samudra Kontindo</b></font></td>
+                            <td><img src="logo_askon_nt.png" alt="Logo Askon" width="60px" height="57px"/></td>
+                            <td><font size="2px"><b>PT. Artha Samudra Kontindo</b><br/></font><left><font size="1px">Kawasan Industri Cipta Guna Blok 9<br/>Jl. Arteri Yos Sudarso, Semarang 50174<br/>Telp: 024-12345678</font></left></td>
                         </tr>
                     </table>
                 </div>
@@ -43,7 +44,7 @@ if (!(isset($_SESSION['username'])))
                         echo "<p align=\"center\">";
                         echo "We're very sorry,<br/>but you cannot access the menu<br/>as guest user.";
                         echo "<br/><br/>";
-                        echo "Please login using your Member ID to access the menu.";
+                        echo "Please <a href=\"swtacc.php\">login</a> using your Member ID to access the menu.";
                         echo "</p>";
                     }
                 ?>

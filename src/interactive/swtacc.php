@@ -5,10 +5,11 @@ if (isset($_SESSION['username']))
 {
     session_unset(); 
     session_destroy(); 
-    header('Location: home.php?logout=1');
+    header('Location: home.php');
 }
 else
 {
+    header('Location: home.php?logoutfail=1');
 }
 
 ?>

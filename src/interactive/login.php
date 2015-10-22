@@ -38,7 +38,7 @@ if (mysqli_num_rows($login) == 1)
 }
 else 
 {
-    header('Location: home.php?loginfail=1');
+    header('Location: home.php?status=1001');
 }
 
 ?>

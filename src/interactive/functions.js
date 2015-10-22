@@ -381,6 +381,36 @@ function updateFieldold(contID)
 //    alert("AJAX Ends, text supposed to be edited");
 }
 
+function loadErrMsg()
+{
+    var errCd = document.getElementById("status").value;
+    //alert(errCd);
+    var xhttp;
+    if (window.XMLHttpRequest) 
+    {
+        xhttp = new XMLHttpRequest();
+    } 
+    
+    else 
+    {
+        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+//    var xhttp = new XMLHttpRequest();
+  
+    xhttp.onreadystatechange = function() 
+    {
+        if (xhttp.readyState == 4 && xhttp.status == 200) 
+        {
+            document.getElementById("errMsg").innerHTML = xhttp.responseText;
+        }
+    }
+    
+    var url = "codehandler.php?status="+errCd;
+  
+    xhttp.open("GET", url, true);   
+    xhttp.send();
+}
+
 function triggerMe()
 {
     alert("JS Working");

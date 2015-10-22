@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 16, 2015 at 07:22 AM
+-- Generation Time: Oct 22, 2015 at 06:43 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `askon`
 --
-CREATE DATABASE IF NOT EXISTS `askon` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `askon`;
 
 -- --------------------------------------------------------
 
@@ -28,7 +26,6 @@ USE `askon`;
 -- Table structure for table `cl`
 --
 
-DROP TABLE IF EXISTS `cl`;
 CREATE TABLE IF NOT EXISTS `cl` (
   `cl_id` int(11) NOT NULL AUTO_INCREMENT,
   `container_id` varchar(11) NOT NULL,
@@ -42,6 +39,11 @@ CREATE TABLE IF NOT EXISTS `cl` (
   PRIMARY KEY (`cl_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
+--
+-- Truncate table before insert `cl`
+--
+
+TRUNCATE TABLE `cl`;
 --
 -- Dumping data for table `cl`
 --
@@ -70,7 +72,6 @@ INSERT INTO `cl` (`cl_id`, `container_id`, `booking_id`, `in_date`, `out_date`, 
 -- Table structure for table `dmin`
 --
 
-DROP TABLE IF EXISTS `dmin`;
 CREATE TABLE IF NOT EXISTS `dmin` (
   `dmin_id` int(11) NOT NULL AUTO_INCREMENT,
   `unit_id` varchar(11) NOT NULL,
@@ -84,6 +85,11 @@ CREATE TABLE IF NOT EXISTS `dmin` (
   PRIMARY KEY (`dmin_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
+--
+-- Truncate table before insert `dmin`
+--
+
+TRUNCATE TABLE `dmin`;
 --
 -- Dumping data for table `dmin`
 --
@@ -100,7 +106,6 @@ INSERT INTO `dmin` (`dmin_id`, `unit_id`, `consignee`, `vessel voyage`, `conds`,
 -- Table structure for table `dmout`
 --
 
-DROP TABLE IF EXISTS `dmout`;
 CREATE TABLE IF NOT EXISTS `dmout` (
   `dmout_id` int(11) NOT NULL AUTO_INCREMENT,
   `unit_id` varchar(11) NOT NULL,
@@ -114,6 +119,11 @@ CREATE TABLE IF NOT EXISTS `dmout` (
   PRIMARY KEY (`dmout_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
+--
+-- Truncate table before insert `dmout`
+--
+
+TRUNCATE TABLE `dmout`;
 --
 -- Dumping data for table `dmout`
 --
@@ -130,7 +140,6 @@ INSERT INTO `dmout` (`dmout_id`, `unit_id`, `consignee`, `vessel voyage`, `conds
 -- Table structure for table `ds`
 --
 
-DROP TABLE IF EXISTS `ds`;
 CREATE TABLE IF NOT EXISTS `ds` (
   `ds_id` int(11) NOT NULL AUTO_INCREMENT,
   `container_id` varchar(11) NOT NULL,
@@ -144,6 +153,11 @@ CREATE TABLE IF NOT EXISTS `ds` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
+-- Truncate table before insert `ds`
+--
+
+TRUNCATE TABLE `ds`;
+--
 -- Dumping data for table `ds`
 --
 
@@ -156,17 +170,90 @@ INSERT INTO `ds` (`ds_id`, `container_id`, `in_date`, `in_time`, `conds`, `aging
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `errors`
+--
+
+CREATE TABLE IF NOT EXISTS `errors` (
+  `err_code` int(4) NOT NULL,
+  `err_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`err_code`),
+  UNIQUE KEY `err_code` (`err_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Truncate table before insert `errors`
+--
+
+TRUNCATE TABLE `errors`;
+--
+-- Dumping data for table `errors`
+--
+
+INSERT INTO `errors` (`err_code`, `err_desc`) VALUES
+(0, NULL),
+(100, 'Continue'),
+(101, 'Switching Protocols'),
+(200, 'OK'),
+(201, 'Created'),
+(202, 'Accepted'),
+(203, 'Non-Authoritative Information'),
+(204, 'No Content'),
+(205, 'Reset Content'),
+(206, 'Partial Content'),
+(300, 'Multiple Choices'),
+(301, 'Moved Permanently'),
+(302, 'Found'),
+(303, 'See Other'),
+(304, 'Not Modified'),
+(305, 'Use Proxy'),
+(306, NULL),
+(307, 'Temporary Redirect'),
+(400, 'Bad Request'),
+(401, 'Unauthorized'),
+(402, 'Payment Required'),
+(403, 'Forbidden'),
+(404, 'Not Found'),
+(405, 'Method Not Allowed'),
+(406, 'Not Acceptable'),
+(407, 'Proxy Authentication Required'),
+(408, 'Request Timeout'),
+(409, 'Conflict'),
+(410, 'Gone'),
+(411, 'Length Required'),
+(412, 'Precondition Failed'),
+(413, 'Request Entity Too Large'),
+(414, 'Request-URI Too Long'),
+(415, 'Unsupported Media Type'),
+(416, 'Requested Range Not Satisfiable'),
+(417, 'Expectation Failed'),
+(500, 'Internal Server Error'),
+(501, 'Not Implemented'),
+(502, 'Bad Gateway'),
+(503, 'Service Unavailable'),
+(504, 'Gateway Timeout'),
+(505, 'HTTP Version Not Supported'),
+(1001, 'Login Failed: Wrong username or password'),
+(1002, 'Login Successful'),
+(1003, 'Logout Successful');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `menu`
 --
 
-DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
   `menu_id` int(11) NOT NULL AUTO_INCREMENT,
   `menu_code` varchar(11) NOT NULL,
   `menu_desc` varchar(50) NOT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
+--
+-- Truncate table before insert `menu`
+--
+
+TRUNCATE TABLE `menu`;
 --
 -- Dumping data for table `menu`
 --
@@ -184,7 +271,6 @@ INSERT INTO `menu` (`menu_id`, `menu_code`, `menu_desc`) VALUES
 -- Table structure for table `sc`
 --
 
-DROP TABLE IF EXISTS `sc`;
 CREATE TABLE IF NOT EXISTS `sc` (
   `sc_id` int(11) NOT NULL AUTO_INCREMENT,
   `seal_id` varchar(15) NOT NULL,
@@ -196,6 +282,11 @@ CREATE TABLE IF NOT EXISTS `sc` (
   PRIMARY KEY (`sc_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
+--
+-- Truncate table before insert `sc`
+--
+
+TRUNCATE TABLE `sc`;
 --
 -- Dumping data for table `sc`
 --
@@ -212,7 +303,6 @@ INSERT INTO `sc` (`sc_id`, `seal_id`, `booking_id`, `container_id`, `size_type`,
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(3) NOT NULL AUTO_INCREMENT,
   `user_username` varchar(20) NOT NULL,
@@ -224,6 +314,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
+--
+-- Truncate table before insert `users`
+--
+
+TRUNCATE TABLE `users`;
 --
 -- Dumping data for table `users`
 --
