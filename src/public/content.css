@@ -82,6 +82,32 @@ body
     height: 4%
 }
 
+#logo
+{
+    padding:7px; 
+    padding-left:200px; 
+    width:126px; 
+    height:115px;
+}
+
+#tableSpacing
+{
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+#tableSpacingInitial
+{
+    padding-left: 50px;
+    padding-right: 30px;
+}
+
+#tableSpacingFinal
+{
+    padding-left: 20px;
+    padding-right: 50px;
+}
+
 .column 
 {
     float: left;

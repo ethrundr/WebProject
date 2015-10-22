@@ -14,12 +14,57 @@
     
     <body id="mainBody">
         <div id="mainHeader">
-            <img src="../interactive/logo_askon_nt.png"
-                 alt="Logo PT.ASKON"
-                 style="padding:7px; padding-left:200px; width:126px; height:115px;" />
+            <table align="center">
+                 <tr>
+                    <td>
+                         <img 
+                            src="../interactive/logo_askon_nt.png"
+                            alt="Logo PT.ASKON"
+                            id="logo" />
+                    </td>
+                    <td>
+                        <h1 style="vertical-align:20px;">
+                            PT. ARTHA SAMUDRA KONTINDO
+                        </h1>
+                        <hr/>
+                        <h2><i>motto perusahaan</i></h2>
+                    </td>
+                </tr>
+            </table>
         </div>
         
         <div id="mainMenubar">
+            <p align="right">
+                <table>
+                    <tr>
+                        <td id="tableSpacingInitial">
+                            <a href="link-success.html">
+                                Home
+                            </a>
+                        </td>
+                        <td id="tableSpacing">
+                            <a href="link-success.html">
+                                Company Profile
+                            </a>
+                        </td>
+                        <td id="tableSpacing">
+                            <a href="link-success.html">
+                                Our Services
+                            </a>
+                        </td>
+                        <td id="tableSpacing">
+                            <a href="link-success.html">
+                                Contact Us
+                            </a>
+                        </td>
+                        <td id="tableSpacingFinal">
+                            <a href="link-success.html">
+                                Help
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </p>
         </div>
         
         <div id="mainSlider">
