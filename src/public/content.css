@@ -59,6 +59,10 @@ body
 #mainHeader
 {
     background-color: antiquewhite;
+    background-image: url("imageplaceholder-1.jpg");
+    background-size: 100% 250%;
+    background-position: 0px -30px;
+    background-repeat: no-repeat;
     height: 20%;
 }
 

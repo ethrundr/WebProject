@@ -1,0 +1,7 @@
+ {
+ 	"manifest_version": 2,
+ 	"name": "PT.ASKON EOR",
+ 	"short_name": "ASKON-EOR",
+ 	"description": "EOR Webpage Development for PT. Artha Samudra Kontindo",
+	"version": "0.1",
+ }

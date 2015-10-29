@@ -29,7 +29,7 @@
 
 #slider 
 {
-	background:#fff url(loading.gif) no-repeat 50% 50%;
+	background:#fff url(loading.gif) no-repeat 100% 100%;
 	position:relative;
 	margin:0 auto; /*center-aligned*/
     transform: translate3d(0,0,0);
@@ -42,7 +42,7 @@
 #slider a.imgLink
 {
 	z-index:2;
-	position:absolute;
+	position:relative;
 	top:0px;
     left:0px;
     border:0;
@@ -55,7 +55,7 @@
 #slider div.video 
 {
 	z-index:2;
-	position:absolute;
+	position:relative;
 	top:0px;
     left:0px;
     border:0;
@@ -67,12 +67,12 @@
 
 #slider 
 {
-	background:transparent url(video.png) no-repeat 50% 50%;
+	background:transparent url(video.png) no-repeat 100% 100%;
 }
 
 .video 
 {
-	background:transparent url(video.png) no-repeat 50% 50%;
+	background:transparent url(video.png) no-repeat 100% 100%;
 }
 
 /* Caption styles */
@@ -166,10 +166,10 @@
 #slider div.loading 
 {
     width:100%; height:90%;
-    background:transparent url(loading.gif) no-repeat 50% 50%;
+    background:transparent url(loading.gif) no-repeat 100% 100%;
     filter: alpha(opacity=60);
     opacity:0.6;
-    position:absolute;
+    position:relative;
     left:0;
     top:0; 
     z-index:9;
@@ -177,24 +177,24 @@
 
 #slider img
 {
-	position:absolute; border:none; display:none;
+	position:relative; border:none; display:none;
 }
 
 #slider>b
 {
-	position:absolute; border:none; display:none;
+	position:relative; border:none; display:none;
 }
 
 #slider a>b 
 {
-	position:absolute; border:none; display:none;
+	position:relative; border:none; display:none;
 }
 
 #slider div.sliderInner 
 {
 	overflow:hidden; 
 	-webkit-transform: rotate(0.000001deg);/* fixed the Chrome not crop border-radius bug*/
-	position:absolute; top:0; left:0;
+	position:relative; top:0; left:0;
 }
 
 #slider>a
