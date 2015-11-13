@@ -1,0 +1,116 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Nov 13, 2015 at 07:58 AM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `asky9955_syscon`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logmovement`
+--
+-- Creation: Nov 12, 2015 at 11:26 AM
+-- Last update: Nov 12, 2015 at 11:28 AM
+--
+
+DROP TABLE IF EXISTS `logmovement`;
+CREATE TABLE IF NOT EXISTS `logmovement` (
+  `bookIn` varchar(30) NOT NULL,
+  `dateIn` date NOT NULL,
+  `jamIn` varchar(5) NOT NULL,
+  `bookOut` varchar(30) DEFAULT NULL,
+  `dateOut` date DEFAULT NULL,
+  `jamOut` varchar(5) DEFAULT NULL,
+  `consigneeName` varchar(80) NOT NULL,
+  `ownerName` varchar(80) NOT NULL,
+  `Haulier` varchar(10) NOT NULL,
+  `containerNumber` varchar(11) NOT NULL,
+  `Cond` varchar(2) NOT NULL,
+  `ISOCode` varchar(5) NOT NULL,
+  `branchID` varchar(10) NOT NULL,
+  `grossWeight` varchar(7) DEFAULT NULL,
+  `mnfrYear` varchar(7) DEFAULT NULL,
+  KEY `dateIn` (`dateIn`,`ISOCode`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `logmovement`
+--
+
+INSERT INTO `logmovement` (`bookIn`, `dateIn`, `jamIn`, `bookOut`, `dateOut`, `jamOut`, `consigneeName`, `ownerName`, `Haulier`, `containerNumber`, `Cond`, `ISOCode`, `branchID`, `grossWeight`, `mnfrYear`) VALUES
+('REPO MAERSK 291015', '2015-10-30', '08:20', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'PONU1624563', 'AV', '40STD', '+6224', NULL, NULL),
+('REPO MAERSK 291015', '2015-10-31', '09:52', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'TCKU9746115', 'AV', '40HC', '+6224', '30480', '07/2004'),
+('REPO MAERSK 291015', '2015-10-31', '08:40', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU2651732', 'AV', '20STD', '+6224', '30480', '01/2003'),
+('REPO MAERSK 291015', '2015-10-31', '08:56', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU3361390', 'AV', '20STD', '+6224', '30480', '09/2004'),
+('REPO MAERSK 291015', '2015-10-31', '08:49', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU7735693', 'AV', '20STD', '+6224', '30480', '05/2008'),
+('REPO MAERSK 291015', '2015-10-31', '08:44', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MRKU9773514', 'AV', '20STD', '+6224', '30480', '05/2014'),
+('REPO MAERSK 291015', '2015-10-31', '08:47', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'PONU0783473', 'AV', '20STD', '+6224', '30480', '04/1998'),
+('REPO MAERSK 291015', '2015-10-31', '08:59', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MRKU9374582', 'AV', '20STD', '+6224', '30480', '08/2013'),
+('REPO MAERSK 291015', '2015-10-31', '08:57', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU3047476', 'AV', '20STD', '+6224', '30480', '08/2003'),
+('REPO MAERSK 291015', '2015-10-31', '08:50', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU2664914', 'AV', '20STD', '+6224', '30480', '02/2003'),
+('REPO MAERSK 291015', '2015-10-31', '08:02', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MRKU0820678', 'AV', '40STD', '+6224', '32500', '  /2013'),
+('REPO MAERSK 291015', '2015-10-31', '09:56', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MRKU0695771', 'AV', '40STD', '+6224', '32500', '06/2011'),
+('REPO MAERSK 291015', '2015-10-31', '10:19', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU9731803', 'AV', '40HC', '+6224', '32500', '82/2006'),
+('REPO MAERSK 291015', '2015-10-31', '10:11', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'CAIU8250414', 'AV', '40HC', '+6224', '32500', '03/2008'),
+('REPO MAERSK 291015', '2015-10-31', '09:01', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MRKU3761774', 'AV', '40HC', '+6224', '32500', '05/2012'),
+('REPO MAERSK 291015', '2015-10-31', '08:15', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MRKU3899510', 'AV', '40HC', '+6224', '32500', '07/2012'),
+('REPO MAERSK 291015', '2015-10-31', '11:25', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU1701844', 'AV', '40HC', '+6224', '32500', '09/2010'),
+('REPO MAERSK 291015', '2015-10-31', '10:06', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU1657973', 'AV', '40HC', '+6224', '32500', '09/2010'),
+('REPO MAERSK 291015', '2015-10-31', '10:09', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MRKU5809141', 'AV', '40HC', '+6224', '32500', '08/2015'),
+('REPO MAERSK 291015', '2015-10-31', '09:59', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU8045389', 'AV', '40HC', '+6224', '32500', '10/2000'),
+('REPO MAERSK 291015', '2015-10-31', '10:43', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU9207695', 'AV', '40HC', '+6224', '32500', '04/2005'),
+('REPO MAERSK 291015', '2015-10-31', '10:34', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MRKU5472282', 'AV', '40HC', '+6224', '32500', '01/2015'),
+('REPO MAERSK 291015', '2015-11-02', '09:51', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU6830042', 'AV', '40STD', '+6224', '32500', '06/2005'),
+('REPO MAERSK 291015', '2015-11-02', '09:18', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'PONU7981568', 'AV', '40HC', '+6224', '32500', '06/2004'),
+('REPO MAERSK 291015', '2015-11-02', '09:36', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MSKU1604546', 'AV', '40HC', '+6224', '32500', '08/2010'),
+('REPO MAERSK 291015', '2015-11-02', '08:43', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MRKU5346514', 'AV', '40HC', '+6224', '32500', '11/2014'),
+('REPO MAERSK 291015', '2015-11-02', '08:56', '', NULL, '', 'PT.MAERSK LINE INDONESIA', 'MAERSK LINE INDONESIA', 'SUN', 'MRKU4665219', 'AV', '40HC', '+6224', '32500', '01/2013');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loguploadsurvey`
+--
+-- Creation: Nov 13, 2015 at 12:38 PM
+-- Last update: Nov 13, 2015 at 12:38 PM
+--
+
+DROP TABLE IF EXISTS `loguploadsurvey`;
+CREATE TABLE IF NOT EXISTS `loguploadsurvey` (
+  `containerNumber` varchar(11) NOT NULL,
+  `Cond` varchar(2) NOT NULL,
+  `condRemark` varchar(100) NOT NULL,
+  `folderSaved` varchar(200) NOT NULL,
+  `folderSaved2` varchar(200) DEFAULT NULL,
+  `whenUpload` varchar(20) NOT NULL,
+  `whenUpload2` varchar(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `loguploadsurvey`
+--
+
+INSERT INTO `loguploadsurvey` (`containerNumber`, `Cond`, `condRemark`, `folderSaved`, `folderSaved2`, `whenUpload`, `whenUpload2`) VALUES
+('MSKU3047476', 'AV', '-', '1446526593.jpg', NULL, '2015-11-03 11:56:33', ''),
+('MSKU3047476', 'AV', '-', '1446526634.jpg', NULL, '2015-11-03 11:57:14', ''),
+('MSKU3047476', 'AV', '-', '1446526652.jpg', NULL, '2015-11-03 11:57:32', ''),
+('PONU1624563', 'AV', '', '1446533524.jpg', NULL, '2015-11-03 13:52:04', ''),
+('MRKU0820678', 'AV', '', '1446530969.jpg', NULL, '2015-11-03 13:09:29', ''),
+('MRKU0820678', 'AV', '', '1446531006.jpg', NULL, '2015-11-03 13:10:06', ''),
+('MRKU0820678', 'AV', '', '1446531025.jpg', NULL, '2015-11-03 13:10:25', ''),
+('PONU1624563', 'AV', '', '1446534002.jpg', NULL, '2015-11-03 14:00:02', '');
