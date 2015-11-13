@@ -1,0 +1,91 @@
+* 
+{
+    margin: 0;
+}
+
+html
+{
+    height: 100%;
+}
+
+body
+{
+    height: 100%
+}
+
+#mainBody
+{
+    background: #ffffff;
+}
+
+#logo
+{
+    width: 105%;
+    height: 105%;
+    padding-right: 10px;
+}
+
+#comName
+{
+    font-size: 16px;
+    line-height: 0.1em;
+}
+
+#comTitle
+{
+    font-size:13px;
+}
+
+#comDesc
+{
+    font-size: 12px;
+}
+
+#formBox 
+{
+    align-content: center;
+    padding-left:35%;
+}
+
+#formInput
+{
+    align-content: center;
+    padding:10px;
+    padding-bottom: 50px;
+}
+
+#dmPhoto
+{
+    position: relative;
+    margin: auto;
+    padding: 10px;
+    width: 47%;
+    background-color: beige;
+}
+
+#avPhoto
+{
+    position: relative;
+    margin: auto;
+    padding: 10px;
+    width: 47%;
+    background-color: aquamarine;
+}
+
+.column 
+{
+    float: left;
+    position: relative;
+    width: 0%;
+}
+
+.column-offset-1 
+{
+    left: 0%;
+}
+
+.column-offset-2
+{
+    left: 0.5%;
+    width: 2%;
+}

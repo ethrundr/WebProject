@@ -1,0 +1,49 @@
+#mainbody 
+{
+  background: -webkit-radial-gradient(circle, #d3d3d3, #000000);
+  background: -o-radial-gradient(circle, #d3d3d3, #000000);
+  background: -moz-radial-gradient(circle, #d3d3d3, #000000);
+  background: radial-gradient(circle, #d3d3d3, #000000);
+}
+
+#centered 
+{
+    position: fixed;
+    margin: auto;
+    top: 47%;
+    left: 28%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+}
+
+#form-center 
+{
+    position: relative;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    top: 47%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+}
+
+#tabling
+{
+    position: relative;
+    /*background: #c0c0c0;*/
+    width: 250px;
+    height: 210px;
+}
+
+#text-center
+{
+    text-align: center;
+}
+
+.box {
+    width:500px;
+    height:500px;
+    position:fixed;
+    margin-left:-100px; /* half of width */
+    margin-top:-100px;  /* half of height */
+}

@@ -1,0 +1,7 @@
+ {
+ 	"manifest_version": 2,
+ 	"name": "PT.ASKON Public Page",
+ 	"short_name": "ASKON-Public",
+ 	"description": "Public Webpage Development for PT. Artha Samudra Kontindo",
+	"version": "0.2",
+ }

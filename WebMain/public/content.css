@@ -1,0 +1,153 @@
+* 
+{
+    margin: 0;
+}
+
+html
+{
+    height: 100%;
+}
+
+body
+{
+    height: 100%
+}
+
+#mainBody
+{
+    background: -webkit-radial-gradient(circle, #d3d3d3, #000000);
+    background: -o-radial-gradient(circle, #d3d3d3, #000000);
+    background: -moz-radial-gradient(circle, #d3d3d3, #000000);
+    background: radial-gradient(circle, #d3d3d3, #000000);
+}
+
+#leftSidebar
+{
+    position: relative;
+    margin: auto;
+    padding: 10px;
+    width: 15%;
+    height: 98%;
+    background-color: beige;
+}
+
+#text-center
+{
+    text-align: center;
+}
+
+#contentArea
+{
+    position: relative;
+    margin: auto;
+    padding: 10px;
+    width: 64.5%;
+    height: 98%;
+    background-color: coral;
+}
+
+#rightSidebar
+{
+    position: relative;
+    margin: auto;
+    padding: 10px;
+    width: 15%;
+    height: 98%;
+    background-color: aquamarine;
+}
+
+#mainHeader
+{
+    background-color: antiquewhite;
+    background-image: url("imageplaceholder-1.jpg");
+    background-size: 100% 250%;
+    background-position: 0px -30px;
+    background-repeat: no-repeat;
+    height: 20%;
+}
+
+#mainFooter
+{
+/*    position: absolute;*/
+    bottom: 0;
+    background-color: cornflowerblue;
+    height: 30%;
+}
+
+#mainSlider
+{
+    background-color: chartreuse;
+    height: 52%
+}
+
+#mainMenubar
+{
+    background-color: fuchsia;
+    height: 4%
+}
+
+#logo
+{
+    padding:7px; 
+    padding-left:200px; 
+    width:126px; 
+    height:115px;
+}
+
+#tableSpacing
+{
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+#tableSpacingInitial
+{
+    padding-left: 50px;
+    padding-right: 30px;
+}
+
+#tableSpacingFinal
+{
+    padding-left: 20px;
+    padding-right: 50px;
+}
+
+.column 
+{
+    float: left;
+    position: relative;
+    width: 0%;
+}
+
+.column-offset-1 
+{
+    left: 0%;
+}
+
+.column-offset-2
+{
+    left: 0.5%;
+    width: 2%;
+}
+
+.column-offset-3 
+{
+    left: 1%;
+}
+
+.wrapper {
+    min-height: 100.8%;
+    height: auto !important;
+    height: 20%;
+    margin: 0 auto -140px;
+}
+
+.footer
+{
+    height: 140px;
+}
+
+.push 
+{
+    height: 140px;
+}

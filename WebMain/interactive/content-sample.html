@@ -1,0 +1,204 @@
+<div style="scrollable:true;">
+<h3>Daily Movement - IN</h3>
+<table border="1px" style="text-align:center;">
+    <tr>
+        <th width="70px">Unit ID</th>
+        <th width="100px">Consignee</th>
+        <th width="150px">Vessel Voyage</th>
+        <th width="100px">Condition</th>
+        <th width="400px">Remarks</th>
+        <th width="100px">In Date</th>
+        <th width="100px">In Time</th>
+        <th width="100px">Block</th>
+    </tr>
+    <tr>
+        <td>00001</td>
+        <td>SAMPLE</td>
+        <td>Sample 00001</td>
+        <td>AV</td>
+        <td></td>
+        <td>15-10-2015</td>
+        <td>10:00</td>
+        <td>A1</td>
+    </tr>
+    <tr>
+        <td>00002</td>
+        <td>SAMPLE</td>
+        <td>Sample 00002</td>
+        <td>DM</td>
+        <td>Sample Remarks</td>
+        <td>15-10-2015</td>
+        <td>10:00</td>
+        <td>B2</td>
+    </tr>
+</table>
+
+<h3>Daily Movement - OUT</h3>
+<table border="1px" style="text-align:center;">
+    <tr>
+        <th width="70px">Unit ID</th>
+        <th width="100px">Consignee</th>
+        <th width="150px">Vessel Voyage</th>
+        <th width="100px">Condition</th>
+        <th width="400px">Remarks</th>
+        <th width="100px">Out Date</th>
+        <th width="100px">Out Time</th>
+        <th width="100px">Block</th>
+    </tr>
+    <tr>
+        <td>00001</td>
+        <td>SAMPLE</td>
+        <td>Sample 00001</td>
+        <td>AV</td>
+        <td></td>
+        <td>15-10-2015</td>
+        <td>10:00:00</td>
+        <td>A1</td>
+    </tr>
+    <tr>
+        <td>00002</td>
+        <td>SAMPLE</td>
+        <td>Sample 00002</td>
+        <td>DM</td>
+        <td>Sample Remarks</td>
+        <td>15-10-2015</td>
+        <td>10:00:00</td>
+        <td>B2</td>
+    </tr>
+</table>
+
+<h3>Daily Stock</h3>
+<table border="1px" style="text-align:center;">
+    <tr>
+        <th width="150px">Container ID</th>
+        <th width="100px">In Date</th>
+        <th width="100px">In Time</th>
+        <th width="100px">Condition</th>
+        <th width="120px">Aging</th>
+        <th width="300px">Haulage</th>
+        <th width="200px">Booking Out ID</th>
+    </tr>
+    <tr>
+        <td>TEST0000001</td>
+        <td>15-10-2015</td>
+        <td>10:00:00</td>
+        <td>AV</td>
+        <td>256</td>
+        <td>SAMPLE</td>
+        <td>BOOK01020304</td>
+    </tr>
+    <tr>
+        <td>TEST0000002</td>
+        <td>15-10-2015</td>
+        <td>10:00:00</td>
+        <td>DM</td>
+        <td>256</td>
+        <td>SAMPLE</td>
+        <td>BOOK02030405</td>
+    </tr>
+</table>
+<br/>
+<table border="1px" style="text-align:center;">
+    <tr>
+        <th width="100px">Size Type</th>
+        <th width="50px">AV</th>
+        <th width="50px">DM</th>
+    </tr>
+    <tr>
+        <td>40GP</td>
+        <td>5</td>
+        <td>2</td>
+    </tr>
+</table>
+
+<h3>Seal Collection</h3>
+<table border="1px" style="text-align:center;">
+    <tr>
+        <th width="210px">Seal ID</th>
+        <th width="210px">Booking ID</th>
+        <th width="200px">Container ID</th>
+        <th width="150px">Size Type</th>
+        <th width="150px">Out Date</th>
+        <th width="150px">Out Time</th>
+    </tr>
+    <tr>
+        <td>S123456789</td>
+        <td>BOOK01020304</td>
+        <td>TEST0000001</td>
+        <td>40GP</td>
+        <td>15-10-2015</td>
+        <td>10:00:00</td>
+    </tr>
+    <tr>
+        <td>S987654321</td>
+        <td>BOOK02030405</td>
+        <td>TEST0000002</td>
+        <td>40GP</td>
+        <td>15-10-2015</td>
+        <td>10:00:00</td>
+    </tr>
+</table>
+
+<h3>Container Log</h3>
+Container ID: TEST0000001
+<table border="1px" style="text-align:center;">
+    <tr>
+        <th width="200px">Booking ID</th>
+        <th width="120px">In Date</th>
+        <th width="120px">Out Date</th>
+        <th width="150px">Activity</th>
+        <th width="210px">Haulage</th>
+        <th width="120px">Size Type</th>
+        <th width="200px">Vessel Voyage</th>
+    </tr>
+    <tr>
+        <td>BOOK01020304</td>
+        <td>15-10-2015</td>
+        <td>15-10-2015</td>
+        <td>SAMPLE</td>
+        <td>SAMPLE</td>
+        <td>20GP</td>
+        <td>SAMPLE 00001</td>
+    </tr>
+    <tr>
+        <td>BOOK02030405</td>
+        <td>15-10-2015</td>
+        <td>15-10-2015</td>
+        <td>SAMPLE</td>
+        <td>SAMPLE</td>
+        <td>20GP</td>
+        <td>SAMPLE 00002</td>
+    </tr>
+</table>
+<br/><br/>
+Container ID: TEST0000002
+<table border="1px" style="text-align:center;">
+    <tr>
+        <th width="200px">Booking ID</th>
+        <th width="120px">In Date</th>
+        <th width="120px">Out Date</th>
+        <th width="150px">Activity</th>
+        <th width="210px">Haulage</th>
+        <th width="120px">Size Type</th>
+        <th width="200px">Vessel Voyage</th>
+    </tr>
+    <tr>
+        <td>BOOK01020304</td>
+        <td>15-10-2015</td>
+        <td>15-10-2015</td>
+        <td>SAMPLE</td>
+        <td>SAMPLE</td>
+        <td>40GP</td>
+        <td>SAMPLE 00001</td>
+    </tr>
+    <tr>
+        <td>BOOK02030405</td>
+        <td>15-10-2015</td>
+        <td>15-10-2015</td>
+        <td>SAMPLE</td>
+        <td>SAMPLE</td>
+        <td>40GP</td>
+        <td>SAMPLE 00002</td>
+    </tr>
+</table>
+</div>
