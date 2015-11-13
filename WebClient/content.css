@@ -1,0 +1,50 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@font-face{
+	src:url("fonts/pictos-regular-webfont.ttf") format("truetype"),
+		url("fonts/pictos-regular-webfont.otf") format("opentype"),
+		url("fonts/pictos-regular-webfont.svg") format("svg");
+	font-family:icon;
+}
+
+body { 
+	font-family: Tahoma, sands-serif, Helvetica;
+	font-size:9px;
+	background:#ffffff;
+}
+
+.companyName1 { color: #000; 
+                text-shadow: 0 0 6px rgba(0,0,0,0.3); 
+                letter-spacing:1px; }
+
+.heading1     { color: #000;
+                font-size: .70em;
+                letter-spacing:1px; }
+
+.center { margin: auto;
+          width: 35%;
+  	      border: 0px solid rgba(0,0,0,0.3);
+          padding: 10px;
+		  font-family: Tahoma;
+          font-size: 12px;
+		  color: #000000; 
+ 	      -webkit-transition: box-shadow .5s ease;
+	      -moz-transition: box-shadow .5s ease;
+	      -o-transition: box-shadow .5s ease;
+	      -ms-transition: box-shadow .5s ease;
+	      transition: box-shadow .5s ease; }
+
+.center2 { margin: auto;
+           width: 70%;
+  	       border: 0px solid rgba(0,0,0,0.3);
+           padding: 12px;
+		   font-family: Tahoma;
+           font-size: 12px;
+		   color: #000000; 
+ 	       -webkit-transition: box-shadow .5s ease;
+	       -moz-transition: box-shadow .5s ease;
+	       -o-transition: box-shadow .5s ease;
+	       -ms-transition: box-shadow .5s ease;
+	       transition: box-shadow .5s ease; }
+
+.titleColumn {font-family: Tahoma; font-size: 12px; text-shadow: 0 0 9px rgba(0,0,0,0.3); }
+.title {font-family: 'Open Sans', sans-serif, Tahoma; font-size: 13px; text-shadow: 0 0 9px rgba(0,0,0,0.3); }	
