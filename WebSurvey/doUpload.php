@@ -99,6 +99,7 @@
 
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <title>ASKON</title>
+    <script type="text/javascript" src="functions.js"></script>
 </head>
 
 <body>
@@ -116,15 +117,15 @@
     <tr>
 	  <td>Condition</td>
 	  <td>:</td>
-	  <td><select name="unitCond">
+	  <td><select id="selCond" name="unitCond" onchange="condUpd()">
 	        <option value="AV">Available</option>
-	        <option value="DM">Damage</option>												  
+	        <option value="DM">Damage</option>				  
 	      </select></td></tr>	
     <tr>
 	  <td>Remark</td>
 	  <td>:</td>
 	  <td><input type="text" maxlength="100" name="remarks" width="380px"></td>	</tr>
- 	<tr>
+ 	<tr id="fileUpd">
 	  <td></td>
 	  <td></td>
 	  <td><input type="file" name="image" class="title"></td></tr>
