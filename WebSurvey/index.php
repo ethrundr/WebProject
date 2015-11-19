@@ -1,5 +1,19 @@
 <?php    
  include "db.php";
+ error_reporting(E_ALL & ~E_NOTICE);
+
+  function getExtension($str) 
+ {
+     $i = strrpos($str,".");
+     if (!$i) 
+     { 
+         return ""; 
+     }
+
+     $l = strlen($str) - $i;
+     $ext = substr($str,$i+1,$l);
+     return $ext;
+ }
 ?>
  
 <html>
@@ -16,7 +30,8 @@
           <td width="19%" height="81" ><img src="img/logo_askon_nt.png" width="72" height="72"></td>
 	    <td width="2%">&nbsp;</td>
 	    <td width="79%">
-	      <font class="companyName1">
+	      <font class="companyName1
+                       ">
 	        <b>PT. ARTHA SAMUDRA KONTINDO</b></font><br/>
 
  	      <font class="heading1">
@@ -72,29 +87,54 @@
 ?>
 
   <table width="90%" border="1" bordercolor="#cccccc" align="center">
-    <tr>
-	  <td width="4%" class="titleColumn"><b>Cond</b></td>	
-	  <td width="15%" class="titleColumn"><b>Upload On</b></td>
-	  <td width="79%" class="titleColumn"><b>Image</b></td>	  
+    <tr>	
+	  <td width="40%" class="titleColumn"><b>After Survey</b></td>	
+	  <td width="40%" class="titleColumn"><b>After Repair</b></td>    
 	</tr>
 
 <?php 
     $selectedDB = mysql_select_db("asky9955_SYSCON", $dbhandle);  
-    $result=mysql_query("SELECT * FROM logUploadSurvey WHERE containerNumber='".$_POST['containerID']."'");
-	while ($row=mysql_fetch_array($result)) {
-	  $folderName = 'upload/'.$row['folderSaved'];
-?>
-    <tr>
-	  <td class="title" valign="top"><?php echo $row['Cond']?></td>
-	  <td class="title" valign="top"><?php echo $row['whenUpload']?></td>	  
-      <td class="title" align="center"><img src="<?php echo $folderName?>" width="900" height="633"></td>
-	</tr>
-<?php
-   }  
+    $result=mysql_query("SELECT * FROM logUploadSurvey WHERE containerNumber='".$_POST['containerID']."' ORDER BY whenUpload ASC");
+     
+	while ($row=mysql_fetch_array($result)) 
+    {
+	  $folderNameSurvey = 'upload/'.$row['folderSaved'];
+      $folderNameRepair = 'upload/'.$row['folderSaved2'];
+        
+      $plainName1 = explode(".",$row['folderSaved']);
+      $extension1 = getExtension($row['folderSaved']);
+      $extension1 = strtolower($extension1);
+      $upImg1 = explode("-",$plainName1[0]);
+      $extracted1 = $upImg1[1].'-Survey.'.$extension1; 
+        
+      $plainName2 = explode(".",$row['folderSaved2']);
+      $extension2 = getExtension($row['folderSaved2']);
+      $extension2 = strtolower($extension2);
+      $upImg2 = explode("-",$plainName2[0]);
+      $extracted2 = $upImg2[1].'-Repair.'.$extension2; 
+        
+      if($row['folderSaved2'] == NULL)
+      {
+         echo "<tr>";
+	     echo "<td class=\"title\"><img src=\"".$folderNameSurvey."\" width=\"600\" height=\"422\"><br/><b>Filename</b>: ".$extracted1."<br/><b>Uploaded On</b>: ".$row['whenUpload']."</td>";
+	     echo "<td class=\"title\"></td>";
+	     echo "</tr>";
+          
+      }
+        
+      else
+      {
+         echo "<tr>";
+	     echo "<td class=\"title\"><img src=\"".$folderNameSurvey."\" width=\"600\" height=\"422\"><br/><b>Filename</b>: ".$extracted1."<br/><b>Uploaded On</b>: ".$row['whenUpload']."</td>";
+	     echo "<td class=\"title\"><img src=\"".$folderNameRepair."\" width=\"600\" height=\"422\"><br/><b>Filename</b>: ".$extracted2."<br/><b>Uploaded On</b>: ".$row['whenUpload2']."</td>";
+	     echo "</tr>"; 
+      }	 
+    }
 ?>
   </table>
+    
 <?php
- } 
+}
  mysql_close($dbhandle);
 ?>
 

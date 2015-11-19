@@ -7,15 +7,15 @@
 // file  is an image by checking the extension.
  function getExtension($str) 
  {
-         $i = strrpos($str,".");
-         if (!$i) 
-         { 
-             return ""; 
-         }
-     
-         $l = strlen($str) - $i;
-         $ext = substr($str,$i+1,$l);
-         return $ext;
+     $i = strrpos($str,".");
+     if (!$i) 
+     { 
+         return ""; 
+     }
+
+     $l = strlen($str) - $i;
+     $ext = substr($str,$i+1,$l);
+     return $ext;
  }
 
 //This variable is used as a flag. The value is initialized with 0 (meaning no 
@@ -32,38 +32,48 @@
         $errors=1;
     }
      
-	if(!isset($_POST['unitCond'])) 
-    {
-        $errors=1;
-    }
-     
     $image="";
     $queryOpt = 1; //Insert New Entry
     $imgSurv = $_FILES['imageSurvey']['name'];
     $imgRepr = $_FILES['imageRepair']['name'];
     $linkImage = $_POST['surveyImage'];
-     
-	if($linkImage != NULL) 
-    {
-        $plainName = explode(".",$linkImage);
-        $extension = getExtension($linkImage);
-        $extension = strtolower($extension);
-        $linkImage = $plainName[0].".".$extension;
-        $queryOpt = 2; //Update Old Entry
-    }
  	
-    if($imgSurv) 
+    if($imgSurv != "") 
     { 
         $image=$imgSurv;
     }
  	
-    if($imgRepr) 
+    else if($imgRepr != "") 
     { 
-        $image=$imgRepr;
+        if($linkImage != NULL) 
+        {
+            $plainName = explode(".",$linkImage);
+            $extension = getExtension($linkImage);
+            $extension = strtolower($extension);
+            $linkImage = $plainName[0].".".$extension;
+            
+            $upImg = explode("-",$linkImage);
+            $extracted = $upImg[0].'-'.$upImg[1];
+            
+            $queryOpt = 2; //Update Old Entry
+            $image=$imgRepr;
+        }
+        
+        else
+        {
+            echo "<script type=\"text/javascript\">alert(\"Please Choose The Survey Image First\")</script>";
+            $errors=1;
+        }
+    }
+     
+    else
+    {
+        echo "<script type=\"text/javascript\">alert(\"No Image To Be Uploaded\")</script>";
+        $errors=1;
     }
      
  	//if it is not empty
- 	if($image) 
+ 	if($image && $errors == 0) 
  	{
  	    //get the original name of the file from the clients machine
  		if($imgSurv) 
@@ -84,7 +94,8 @@
         if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif")) 
  		{
 		   //print error message
- 			echo '<h1>Unknown extension! (only jpg, jpeg, gif, png format will be accepted)</h1>';
+ 			echo "<script type=\"text/javascript\">alert(\"Unknown extension! (only jpg, jpeg, gif, png format will be accepted)\")</script>";
+//            echo '<h1>Unknown extension! (only jpg, jpeg, gif, png format will be accepted)</h1>';
  			$errors=1;
  		}
         
@@ -105,12 +116,26 @@
            //compare the size with the maxim size we defined and print error if bigger
             if ($size > MAX_SIZE*1024)
             {
-	           echo '<h1>You have exceeded the size limit!</h1>';
+               echo "<script type=\"text/javascript\">alert(\"You have exceeded the size limit!\")</script>";
+//	           echo '<h1>You have exceeded the size limit!</h1>';
 	           $errors=1;
             }
 
             //we will give an unique name, for example the time in unix time format
-            $image_name = time().'.'.$extension;
+            if($imgSurv)
+            {
+                $image_name = $_POST['containerNumber'].'-'.time().'-1.'.$extension;
+            }
+            
+            else if($imgRepr)
+            {
+//                $image_name = $_POST['containerNumber'].'-'.time().'-0.'.$extension;
+                $image_name = $extracted.'-0.'.$extension;
+                if(file_exists($image_name))
+                {
+                    unlink($image_name);
+                }
+            }
            //the new name will be containing the full path where will be stored (images folder)
             $newname = "upload/".$image_name;
            //we verify if the image has been uploaded, and print error instead
@@ -129,7 +154,8 @@
                 
               if (!$copied) 
               {
- 	             echo '<h1>Copy unsuccessfull!</h1>';
+ 	             echo "<script type=\"text/javascript\">alert(\"Copy unsuccessful!\")</script>";
+//                 echo '<h1>Copy unsuccessful!</h1>';
 	             $errors=1;
               }
            }
@@ -141,11 +167,13 @@
  if(isset($_POST['Submit']) && !$errors && $queryOpt == 1) 
  {
     $selectedDB = mysql_select_db("asky9955_syscon", $dbhandle);  
-    $SQL="INSERT INTO loguploadsurvey(containerNumber,Cond,folderSaved,whenUpload,condRemark) ";
-     $SQL=$SQL."VALUES('".$_POST['containerNumber']."','".$_POST['unitCond']."','".$image_name."','".date('Y-m-d H:i:s')."','".$_POST['remarks']."')";
+    $SQL="INSERT INTO loguploadsurvey(containerNumber,folderSaved,whenUpload,condRemark) ";
+     $SQL=$SQL."VALUES('".$_POST['containerNumber']."','".$image_name."','".date('Y-m-d H:i:s')."','".$_POST['remarks']."')";
 	$result=mysql_query($SQL, $dbhandle);
 	
-	echo "<h1>File Uploaded Successfully</h1>";
+	echo "<script type=\"text/javascript\">alert(\"File Uploaded Successfully\")</script>";
+//     echo "<h1>File Uploaded Successfully</h1>";
+     
  }
 
  else if(isset($_POST['Submit']) && !$errors && $queryOpt == 2) 
@@ -155,12 +183,14 @@
      
 	$result=mysql_query($SQL, $dbhandle);
 	
-	echo "<h1>File Uploaded Successfully</h1>";
+	echo "<script type=\"text/javascript\">alert(\"File Uploaded Successfully\")</script>";
+//     echo "<h1>File Uploaded Successfully</h1>";
  }
 
  else if ($errors)
  {
-    echo "<h1>Upload Error!</h1>";
+	echo "<script type=\"text/javascript\">alert(\"Upload Error!\")</script>";
+//    echo "<h1>Upload Error!</h1>";
  }
 ?>
 
@@ -227,19 +257,12 @@
 	       value=<?php if(isset($_POST['containerNumber'])) { echo $_POST['containerNumber']; }
 					   else echo "";
 				  ?> ></td>
+        <td width="10%" rowspan="5"></td>
+        <td rowspan="5">Gambar "After Survey" yang Dipilih<br/><img src="" id="linkImg" width="220" height="150" border="1 solid"></td>
     </tr>
-    <tr>
-	  <td>Condition</td>
-	  <td>:</td>
-	  <td><select name="unitCond">
-	        <option value="AV">Available</option>
-	        <option value="DM">Damage</option>				  
-	      </select></td>
-    </tr>	
-    <tr>
 	  <td>Remark</td>
 	  <td>:</td>
-	  <td><input type="text" maxlength="100" name="remarks" width="380px"/></td>	
+	  <td><input type="text" maxlength="100" size="50" name="remarks" width="380px"/></td>	
     </tr>
  	<tr>
 	  <td>After Survey</td>
@@ -249,63 +272,66 @@
  	<tr>
 	  <td>After Repair</td>
 	  <td>:</td>
-	  <td><input type="file" name="imageRepair" class="title"><br/><input type="text" name="surveyImage" class="title" placeholder="Link Image"> Masukkan nama file foto survey dari foto After Repair yang diupload.</td>
+	  <td><input type="file" name="imageRepair" class="title"><br/><input type="text" id="surveyImage" name="surveyImage" class="title" placeholder="Link Image" size="50" readonly><br/>Klik foto "After Survey" dibawah dari foto repair yang akan di-upload untuk mengisi kolom ini.</td>
     </tr>
  	<tr>
 	   <td></td>
 	   <td></td>
-	   <td><input name="Submit" type="submit" value="Upload image">
+	   <td><input name="Submit" type="submit" value="Upload image"> <input name="refresh" type="button" value="Refresh Image" onclick="fetchImage()">
        </td>
     </tr>
   </table>	
-  </form>
-  
   <br/>
-
+    <div id="testDel"></div>
   <div id="updImgLoc">
-    
+ 
 <?php
   if(isset($_POST['Submit']))
   {
 ?>
   <table width="90%" border="1" bordercolor="#ccc" align="center">
     <tr>
-	  <td width="10%" class="titleColumn"><b>Condition</b></td>	
+	  <td width="10%" class="titleColumn"></td>	
 	  <td width="40%" class="titleColumn"><b>After Survey</b></td>	
 	  <td width="40%" class="titleColumn"><b>After Repair</b></td>  
 	</tr>
 
 <?php  
     $selectedDB = mysql_select_db("asky9955_syscon", $dbhandle);  
-    $result=mysql_query("SELECT * FROM loguploadsurvey WHERE containerNumber='".$_POST['containerNumber']."'");
+    $result=mysql_query("SELECT * FROM loguploadsurvey WHERE containerNumber='".$_POST['containerNumber']."' ORDER BY whenUpload ASC");
+      
+    $index = 0;
       
 	while ($row=mysql_fetch_array($result)) 
     {
 	  $folderNameSurvey = 'upload/'.$row['folderSaved'];
       $folderNameRepair = 'upload/'.$row['folderSaved2'];
         
-      if($row['Cond'] == "AV")
+      if($row['folderSaved2'] == NULL)
       {
          echo "<tr>";
-	     echo "<td class=\"title\">".$row['Cond']."</td>";
-	     echo "<td class=\"title\"><img src=\"".$folderNameSurvey."\" width=\"600\" height=\"422\"><br/><b>Filename</b>: ".$row['folderSaved']."<br/><b>Uploaded On</b>: ".$row['whenUpload']."</td>";
+	     echo "<td class=\"title\"><input type=\"button\" name=\"delete".$index."\" value=\"Delete Entry\" onclick=\"deleteEntry(".$index.");fetchImage();\"><input type=\"hidden\" id=\"contNumHid".$index."\" value=\"".$row['containerNumber']."\"><input type=\"hidden\" id=\"upTime".$index."\" value=\"".$row['whenUpload']."\"></td>";
+	     echo "<td class=\"title\"><a href=\"#\"  onclick=\"selectedSurvey(".$index.")\"><img src=\"".$folderNameSurvey."\" width=\"600\" height=\"422\"></a><input type=\"hidden\" id=\"survImg".$index."\" value=\"".$row['folderSaved']."\"><br/><b>Filename</b>: ".$row['folderSaved']."<br/><b>Uploaded On</b>: ".$row['whenUpload']."</td>";
 	     echo "<td class=\"title\"></td>";
 	     echo "</tr>";
           
       }
         
-      else if($row['Cond'] == "DM")
+      else
       {
          echo "<tr>";
-	     echo "<td class=\"title\">".$row['Cond']."</td>";
-	     echo "<td class=\"title\"><img src=\"".$folderNameSurvey."\" width=\"600\" height=\"422\"><br/><b>Filename</b>: ".$row['folderSaved']."<br/><b>Uploaded On</b>: ".$row['whenUpload']."</td>";
+	     echo "<td class=\"title\"><input type=\"button\" name=\"delete".$index."\" value=\"Delete Entry\" onclick=\"deleteEntry(".$index.");fetchImage();\"><input type=\"hidden\" id=\"contNumHid".$index."\" value=\"".$row['containerNumber']."\"><input type=\"hidden\" id=\"upTime".$index."\" value=\"".$row['whenUpload']."\"></td>";
+	     echo "<td class=\"title\"><a href=\"#\"  onclick=\"selectedSurvey(".$index.")\"><img src=\"".$folderNameSurvey."\" width=\"600\" height=\"422\"></a><input type=\"hidden\" id=\"survImg".$index."\" value=\"".$row['folderSaved']."\"><br/><b>Filename</b>: ".$row['folderSaved']."<br/><b>Uploaded On</b>: ".$row['whenUpload']."</td>";
 	     echo "<td class=\"title\"><img src=\"".$folderNameRepair."\" width=\"600\" height=\"422\"><br/><b>Filename</b>: ".$row['folderSaved2']."<br/><b>Uploaded On</b>: ".$row['whenUpload2']."</td>";
 	     echo "</tr>"; 
       }	
+        
+      $index = $index + 1;
 	}
 ?>
   </table>  
   </div>
+  </form>
 
 <?php	
   }
